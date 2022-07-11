@@ -3,6 +3,7 @@ $(async function () {
     getNewUserForm();
     getDefaultModal();
     addNewUser();
+    await getTableWithUsers1();
 })
 
 
@@ -197,6 +198,7 @@ async function addNewUser() {
         const response = await userFetchService.addNewUser(data);
         if (response.ok) {
             getTableWithUsers();
+            getTableWithUsers1();
             addUserForm.find('#AddNewUserName').val('');
             addUserForm.find('#AddNewUserPassword').val('');
             addUserForm.find('#AddNewUserAge').val('');
@@ -212,4 +214,26 @@ async function addNewUser() {
             addUserForm.prepend(alert)
         }
     })
+}
+async function getTableWithUsers1() {
+    let table = $('#mainTableWithUsers1 tbody');
+    table.empty();
+
+    await userFetchService.findAllUsers()
+        .then(res => res.json())
+        .then(users => {
+            users.forEach(user => {
+                let tableFilling = `$(
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.password.slice(0, 15)}...</td>
+                            <td>${user.age}</td>    
+                            <td>${user.email}</td>   
+                       
+                        </tr>
+                )`;
+                table.append(tableFilling);
+            })
+        })
 }

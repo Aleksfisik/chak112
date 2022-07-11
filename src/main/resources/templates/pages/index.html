@@ -5,58 +5,113 @@
     <link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
     <title>Index</title>
 </head>
-<body class="text-left">
-<h1>Admin Panel</h1>
-<div class="col-sm-6">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-               aria-selected="true">User table</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-               aria-selected="false">New user</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container-fluid">
+<div class="row">
 
-                <div class="d-flex justify-content-center">
-                    <div>
-                        <table class="table table-striped" id="mainTableWithUsers">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Password</th>
-                                <th>Age</th>
-                                <th>Email</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+               aria-controls="v-pills-home" aria-selected="true">admin</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+               aria-controls="v-pills-profile" aria-selected="false">user</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <caption><h1>Admin Page</h1></caption>
+                <div class="col-sm-6">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                               aria-controls="home"
+                               aria-selected="true">User table</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                               aria-controls="profile"
+                               aria-selected="false">New user</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+
+                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                            <div class="container-fluid">
+
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <table class="table table-striped" id="mainTableWithUsers">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Password</th>
+                                                <th>Age</th>
+                                                <th>Email</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="form-group align-items-center">
+                                <form id="defaultSomeForm">
+                                    <input class="form-control" id="AddNewUserName" type="text" placeholder="name"><br>
+                                    <input class="form-control" id="AddNewUserPassword" type="password"
+                                           placeholder="password"><br>
+                                    <input class="form-control" id="AddNewUserAge" type="number" placeholder="age"><br>
+                                    <input class="form-control" id="AddNewUserEmail" type="text"
+                                           placeholder="email"><br>
+                                    <button class="btn btn-primary mb-2" type="button" id="addNewUserButton">Add new
+                                        user
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="container">
+                    <caption><h1>User Page</h1></caption>
+                    <div class="card">
+                        <div class="card-block">
+                            <table class="table table-striped" id="mainTableWithUsers1">
+
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+
+
+                            </table>
+
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="form-group align-items-center">
-                <form id="defaultSomeForm">
-                    <input class="form-control" id="AddNewUserName" type="text" placeholder="name"><br>
-                    <input class="form-control" id="AddNewUserPassword" type="password" placeholder="password"><br>
-                    <input class="form-control" id="AddNewUserAge" type="number" placeholder="age"><br>
-                    <input class="form-control" id="AddNewUserEmail" type="text" placeholder="email"><br>
-                    <button class="btn btn-primary mb-2" type="button" id="addNewUserButton">Add new user</button>
-                </form>
-            </div>
-        </div>
     </div>
 </div>
-
+</div>
 
 <div class="modal fade" id="someDefaultModal" tabindex="-1" role="dialog"
      aria-labelledby="someDefaultModalLabel"
